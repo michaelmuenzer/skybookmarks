@@ -92,7 +92,7 @@ function App() {
 
   const handleFindUserSubmit = async (event) => {
     event.preventDefault();
-    console.log('find user bookmarks form submitted');
+    console.log('Find user bookmarks form submitted');
     setLoading(true);
 
     try {
@@ -110,9 +110,9 @@ function App() {
     setLoading(false);
   }
 
-  const handleSubmit = async (event) => {
+  const handleNewBookmarkSubmit = async (event) => {
     event.preventDefault();
-    console.log('form submitted');
+    console.log('New bookmark form submitted');
     setLoading(true);
 
     console.log('Store bookmark');
@@ -142,7 +142,6 @@ function App() {
     });
 
     const dirName = sanitizeFilename(bookmarkUrl, {replacement: '_'}) + "_" + creationTimestamp;
-    //console.log(dirName);
     const { skylink: dirSkylink } = await client.uploadDirectory(
       webDirectory,
       dirName
@@ -168,6 +167,10 @@ function App() {
     bookmarks.push(newBookmark);
     await handleMySkyWrite(bookmarks);
     setBookmarks(bookmarks);
+
+    // Reset form
+    setBookmarkName('');
+    setBookmarkUrl('');
 
     setLoading(false);
   };
@@ -225,7 +228,6 @@ function App() {
 
     try {
       // Write data with MySky
-      //console.log(bookmarks);
       await mySky.setJSON(filePath, bookmarks);
 
       // We currently only allow changing the name of the bookmark
@@ -251,7 +253,7 @@ function App() {
   // define args passed to form
   const formProps = {
     mySky,
-    handleSubmit,
+    handleNewBookmarkSubmit,
     handleFindUserSubmit,
     handleMySkyLogin,
     handleMySkyLogout,
@@ -309,7 +311,7 @@ function App() {
         style={{ marginTop: '1em', marginBottom: '1em' }}
       />
       <Tab
-        menu={{ fluid: true, horizontal: true, tabular: true }}
+        menu={{ fluid: true, horizontal: "true", tabular: true }}
         panes={panes}
         onTabChange={handleSelectTab}
         activeIndex={activeTab}

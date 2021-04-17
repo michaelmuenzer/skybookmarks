@@ -35,7 +35,7 @@ const WorkshopForm = (props) => {
             <Divider />
             {props.activeTab == 0 && (     
               <>
-                <Form onSubmit={props.handleSubmit}>
+                <Form onSubmit={props.handleNewBookmarkSubmit}>
                   <Form.Field>
                     <label>
                       UserID <i>(Shared across MySky)</i>
@@ -43,6 +43,7 @@ const WorkshopForm = (props) => {
                     <Input
                       placeholder="You must Login with MySky..."
                       value={props.userID}
+                      disabled
                       icon="user circle"
                       iconPosition="left"
                     />  
@@ -52,13 +53,10 @@ const WorkshopForm = (props) => {
                     <Input
                       placeholder="You must Login with MySky..."
                       value={props.filePath}
+                      disabled
                       icon="file"
                       iconPosition="left"
                     />
-                    <Label pointing basic color="green">
-                      MySky Files are saved at a path. An app must have
-                      permissions to write there.
-                    </Label>
                   </Form.Field>
                   <Divider />
                   <Form.Field>
@@ -91,7 +89,7 @@ const WorkshopForm = (props) => {
                             />
                           </Grid.Column>
                           <Grid.Column width={9}>
-                            <a href={bookmark.bookmarkUrl}>{bookmark.bookmarkUrl}</a>
+                            <a href={bookmark.bookmarkUrl} target="_blank">{bookmark.bookmarkUrl}</a>
                           </Grid.Column>
                           <Grid.Column width={1}>
                             <Button
@@ -150,7 +148,7 @@ const WorkshopForm = (props) => {
                       UserID
                     </label>
                     <Input
-                      placeholder="Show bookmarks for this UserID"
+                      placeholder="Enter UserID"
                       icon="user circle"
                       iconPosition="left"
                       onChange={(e) => {
@@ -173,7 +171,7 @@ const WorkshopForm = (props) => {
                             <p>{bookmark.bookmarkName}</p>
                           </Grid.Column>
                           <Grid.Column>
-                            <a href={bookmark.bookmarkUrl}>{bookmark.bookmarkUrl}</a>
+                            <a href={bookmark.bookmarkUrl} target="_blank">{bookmark.bookmarkUrl}</a>
                           </Grid.Column>
                         </Grid>
                       ))}

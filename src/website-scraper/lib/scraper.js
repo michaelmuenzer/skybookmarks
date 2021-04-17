@@ -96,7 +96,6 @@ class Scraper {
 	createNewRequest (resource) {
 		const self = this;
 
-		//TODO: Can this be moved to beforeRequest?
 		//TODO: Use own proxy server, https://github.com/Rob--W/cors-anywhere/
 		const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
 		const url = corsAnywhere + resource.getUrl();

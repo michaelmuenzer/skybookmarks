@@ -15,7 +15,7 @@ Content record library:
 1. [Yarn](https://yarnpkg.com/getting-started/install) installed. (`npm install -g yarn`)
 1. Clone this repo.
 
-## Part 0: Setup
+## Setup
 
 1. Open your terminal to the cloned repo folder and run `yarn install` to
    install the project's dependencies.
@@ -25,7 +25,7 @@ Content record library:
    terminal to stop your app.)
 3. **Test it out!** Now Sign up for an account on MySky and update your bookmark list. They are stored on in [SkyDB](https://support.siasky.net/key-concepts/skydb) and are publicly shared in the system! You can also use the [Content Record Viewer](http://skey.hns.siasky.net/) tool to see your content record.
 
-## Part 1: Deploy the Web App on Skynet
+## Deploy the Web App on Skynet
 
 Congratulations! You have a fully functioning Skapp! Let's deploy
 it and let the world see its wonder! Deploying an application is as easy as uploading a directory.
