@@ -9,7 +9,7 @@ Content record library:
 - Save bookmarks
 - Record changes of bookmarks
 
-Access latest deployed page on https://025hekt.hns.siasky.net/. Set-up using [this](https://support.siasky.net/key-concepts/handshake-names) tutorial.
+You can access the latest deployed version on https://025hekt.hns.siasky.net/. It is set-up using [Github actions](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1) and [HNS](https://support.siasky.net/key-concepts/handshake-names).
 
 ## Prerequisites
 
