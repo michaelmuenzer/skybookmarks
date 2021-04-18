@@ -9,6 +9,8 @@ Content record library:
 - Save bookmarks
 - Record changes of bookmarks
 
+Access latest deployed page on https://025hekt.hns.siasky.net/. Set-up using [this](https://support.siasky.net/key-concepts/handshake-names) tutorial.
+
 ## Prerequisites
 
 1. [NodeJS](https://nodejs.org/en/download/) installed.
@@ -18,7 +20,7 @@ Content record library:
 ## Setup for local development
 
 1. For local React App projects, we need to remove `"homepage": ".",` from the `package.json`.
-1. When working locally, we want our App to only communicate with siasky.net. Find the line that says
+2. When working locally, we want our App to only communicate with siasky.net. Find the line that says
 
 ```javascript
 const client = new SkynetClient();
@@ -30,39 +32,50 @@ and replace it with
 const portal = 'https://siasky.net/';
 const client = new SkynetClient(portal);
 ```
-1. Open your terminal to the cloned repo folder and run `yarn install` to
+3. Set your data domain for [MySky](https://siasky.net/docs/#initializing-mysky):
+
+```javascript
+const dataDomain = 'localhost';
+```
+4. Open your terminal to the cloned repo folder and run `yarn install` to
    install the project's dependencies.
-1. Run `yarn start` to see our app's starting layout. If your browser doesn't
+5. Run `yarn start` to see our app's starting layout. If your browser doesn't
    launch, visit [localhost:3000](localhost:3000). Create React App will
    auto-reload when you save files. (Use <kbd>Ctrl</kbd>+<kbd>C</kbd> in the
    terminal to stop your app.)
-1. **Test it out!** Now Sign up for an account on MySky and update your bookmark list. They are stored on in [SkyDB](https://support.siasky.net/key-concepts/skydb) and are publicly shared in the system! You can also use the [Content Record Viewer](http://skey.hns.siasky.net/) tool to see your content record.
+6. **Test it out!** Now Sign up for an account on MySky and update your bookmark list. They are stored on in [SkyDB](https://support.siasky.net/key-concepts/skydb) and are publicly shared in the system! You can also use the [Content Record Viewer](http://skey.hns.siasky.net/) tool to see your content record.
 
 ## Deploy the Web App on Skynet
 
 Congratulations! You have a fully functioning Skapp! Deployment is currently configured with a Github action. You can nevertheless deploy your own instance by doing the following:
 
-1. We need to be sure to have `"homepage": ".",` in the `package.json`.
+1. Have `"homepage": ".",` set in the `package.json`
 
-1. We need to be sure to have the following enabled:
+2. Do not define a portal when initializing the [Skynet client](https://siasky.net/docs/#using-the-skynet-client):
 
 ```javascript
 const client = new SkynetClient();
 ```
 
-1. Build the application with `yarn build`
+3. Set your data domain for [MySky](https://siasky.net/docs/#initializing-mysky):
 
-1. Upload the newly created `build` folder to [https://siasky.net](http://siasky.net). (Make sure you select 'Do you want to upload an entire directory?')
+```javascript
+const dataDomain = 'yourdomain';
+```
+
+4. Build the application with `yarn build`
+
+5. Upload the newly created `build` folder to [https://siasky.net](http://siasky.net). (Make sure you select 'Do you want to upload an entire directory?')
 
 ## Where to go from here?
 
-Think of new features this page can offer and feel free to create PRs for them. Here are some ideas you could build upon:
-- Overview of the most bookmarkes pages accross all users
+Think of new features this product can offer and feel free to create PRs for them. Here are some ideas you could build upon:
+- Overview of the most bookmarked pages accross all users
 - Bookmark deletion
-- Browser extension to set bookmarks more conveniently
-- Categorizing bookmarks and building a search engine / discovery features on top
+- Browser extensions to set bookmarks more conveniently
+- Categorizing bookmarks and building a search engine and discovery features on top
 
-### Available Scripts
+## Available Scripts
 
 In the project directory, you can run:
 

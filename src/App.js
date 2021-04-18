@@ -16,6 +16,10 @@ import { SkynetClient } from 'skynet-js';
 //const client = new SkynetClient(portal);
 const client = new SkynetClient();
 
+// Choose a data domain for saving files in MySky, you can use localhost during development
+//const dataDomain = 'localhost';
+const dataDomain = '025hekt.hns';
+
 const contentRecord = new ContentRecordDAC();
 
 function App() {
@@ -31,9 +35,6 @@ function App() {
   const [findUserID, setFindUserID] = useState('');
   const [mySky, setMySky] = useState(null);
   const [loggedIn, setLoggedIn] = useState(null);
-
-  // choose a data domain for saving files in MySky
-  const dataDomain = 'localhost';
 
   // choose a personal folder name for saving files in MySky
   const dataKey = 'bookmarks';
