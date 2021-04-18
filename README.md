@@ -15,61 +15,52 @@ Content record library:
 1. [Yarn](https://yarnpkg.com/getting-started/install) installed. (`npm install -g yarn`)
 1. Clone this repo.
 
-## Setup
+## Setup for local development
 
-1. Open your terminal to the cloned repo folder and run `yarn install` to
-   install the project's dependencies.
-2. Run `yarn start` to see our app's starting layout. If your browser doesn't
-   launch, visit [localhost:3000](localhost:3000). Create React App will
-   auto-reload when you save files. (Use <kbd>Ctrl</kbd>+<kbd>C</kbd> in the
-   terminal to stop your app.)
-3. **Test it out!** Now Sign up for an account on MySky and update your bookmark list. They are stored on in [SkyDB](https://support.siasky.net/key-concepts/skydb) and are publicly shared in the system! You can also use the [Content Record Viewer](http://skey.hns.siasky.net/) tool to see your content record.
-
-## Deploy the Web App on Skynet
-
-Congratulations! You have a fully functioning Skapp! Let's deploy
-it and let the world see its wonder! Deploying an application is as easy as uploading a directory.
-
-1. For Create React App projects, we need to add `"homepage": ".",` to the `package.json`.
-
-2. Next, we'll return to where we initialized the `SkynetClient` in _Step 1.2_. When deployed to Skynet, we don't want our App to only communicate with siasky.net, instead we want it to communicate with the portal the app is being served from. Find the line that says
+1. For local React App projects, we need to remove `"homepage": ".",` from the `package.json`.
+1. When working locally, we want our App to only communicate with siasky.net. Find the line that says
 
 ```javascript
-// Initiate the SkynetClient
-const client = new SkynetClient(portal);
+const client = new SkynetClient();
 ```
 
 and replace it with
 
 ```javascript
-// Initiate the SkynetClient
+const portal = 'https://siasky.net/';
+const client = new SkynetClient(portal);
+```
+1. Open your terminal to the cloned repo folder and run `yarn install` to
+   install the project's dependencies.
+1. Run `yarn start` to see our app's starting layout. If your browser doesn't
+   launch, visit [localhost:3000](localhost:3000). Create React App will
+   auto-reload when you save files. (Use <kbd>Ctrl</kbd>+<kbd>C</kbd> in the
+   terminal to stop your app.)
+1. **Test it out!** Now Sign up for an account on MySky and update your bookmark list. They are stored on in [SkyDB](https://support.siasky.net/key-concepts/skydb) and are publicly shared in the system! You can also use the [Content Record Viewer](http://skey.hns.siasky.net/) tool to see your content record.
+
+## Deploy the Web App on Skynet
+
+Congratulations! You have a fully functioning Skapp! Deployment is currently configured with a Github action. You can nevertheless deploy your own instance by doing the following:
+
+1. We need to be sure to have `"homepage": ".",` in the `package.json`.
+
+1. We need to be sure to have the following enabled:
+
+```javascript
 const client = new SkynetClient();
 ```
 
-3. Build the application with `yarn build`
+1. Build the application with `yarn build`
 
-4. Upload the newly created `build` folder to [https://siasky.net](http://siasky.net). (Make sure you select 'Do you want to upload an entire directory?')
-
-5. Now any of your friends can make their own certificates!
+1. Upload the newly created `build` folder to [https://siasky.net](http://siasky.net). (Make sure you select 'Do you want to upload an entire directory?')
 
 ## Where to go from here?
 
-Now that you've deployed a Skynet app, there's many things to keep learning!
-
-- You can [learn how to use
-  Handshake](https://support.siasky.net/key-concepts/handshake-names) for a
-  decentralized human-readable URL like
-  [skyfeed.hns.siasky.net](https://skyfeed.hns.siasky.net).
-
-- You can [automate
-  deployment](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1)
-  of your site using a [Github
-  Action](https://github.com/kwypchlo/deploy-to-skynet-action).
-
-We're always improving our [Skynet Developer
-Resources](https://support.siasky.net/the-technology/developing-on-skynet),
-so check that out and join [our Discord](https://discord.gg/sia) to share
-ideas with other devs.
+Think of new features this page can offer and feel free to create PRs for them. Here are some ideas you could build upon:
+- Overview of the most bookmarkes pages accross all users
+- Bookmark deletion
+- Browser extension to set bookmarks more conveniently
+- Categorizing bookmarks and building a search engine / discovery features on top
 
 ### Available Scripts
 

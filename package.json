@@ -1,6 +1,7 @@
 {
   "name": "skybookmarks",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@skynetlabs/content-record-library": "^0.2.1",

@@ -11,11 +11,10 @@ import { SkynetClient } from 'skynet-js';
 
 // We'll define a portal to allow for developing on localhost.
 // When hosted on a skynet portal, SkynetClient doesn't need any arguments.
-const portal = 'https://siasky.net/';
-
-// Initiate the SkynetClient
-const client = new SkynetClient(portal);
-//const client = new SkynetClient();
+// Also don't forget to remove homepage from package.json
+//const portal = 'https://siasky.net/';
+//const client = new SkynetClient(portal);
+const client = new SkynetClient();
 
 const contentRecord = new ContentRecordDAC();
 
