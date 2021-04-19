@@ -1,12 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
 
-import WorkshopForm from './components/Form';
+import ContentForm from './components/Form';
+import Auth from './components/Auth';
+
 import scrape from './website-scraper/index';
 import sanitizeFilename from 'sanitize-filename';
 
-import { Header, Tab, Container } from 'semantic-ui-react';
+import { Tab, Container, Header, Menu } from 'semantic-ui-react';
 import { ContentRecordDAC } from '@skynetlabs/content-record-library';
-
 import { SkynetClient } from 'skynet-js';
 
 // We'll define a portal to allow for developing on localhost.
@@ -96,6 +97,7 @@ function App() {
     setLoading(true);
 
     try {
+      console.log(findUserID);
       var findUserBookmarks = await client.file.getJSON(findUserID, filePath);
 
       if (findUserBookmarks && findUserBookmarks.data) {
@@ -250,8 +252,7 @@ function App() {
     setBookmarks(newBookmarks);
   };
 
-  // define args passed to form
-  const formProps = {
+  const props = {
     mySky,
     handleNewBookmarkSubmit,
     handleFindUserSubmit,
@@ -280,27 +281,43 @@ function App() {
 
   // handleSelectTab handles selecting the part of the workshop
   const handleSelectTab = (e, { activeIndex }) => {
-    setActiveTab(activeIndex);
+    if(activeIndex <= 1) {
+      setActiveTab(activeIndex);
+    }
   };
 
   const panes = [
     {
-      menuItem: 'My Bookmarks',
+      menuItem: <Menu.Item key="bookmarks"><i class="star icon"></i>My Bookmarks</Menu.Item>,
       render: () => (
-        <Tab.Pane>
-          <WorkshopForm {...formProps} />
+        <Tab.Pane attached={false}>
+          <ContentForm {...props} />
         </Tab.Pane>
       ),
     },
     {
-      menuItem: 'Find user',
+      menuItem: <Menu.Item key="find"><i class="search icon"></i>Search user</Menu.Item>,
       render: () => (
-        <Tab.Pane>
-          <WorkshopForm {...formProps} />
+        <Tab.Pane attached={false}>
+          <ContentForm {...props} />
         </Tab.Pane>
       ),
     },
+    {
+      menuItem: <Menu.Item key="profile" className="right tabular"><Auth {...props} /></Menu.Item>
+    },
   ];
+
+  const TabsPointing = () => 
+    <Tab 
+      menu={{ 
+        pointing: true,
+        horizontal: "true",
+      }}
+      panes={panes}
+      onTabChange={handleSelectTab}
+      activeIndex={activeTab}
+    />
 
   return (
     <Container>
@@ -310,12 +327,7 @@ function App() {
         textAlign="center"
         style={{ marginTop: '1em', marginBottom: '1em' }}
       />
-      <Tab
-        menu={{ fluid: true, horizontal: "true", tabular: true }}
-        panes={panes}
-        onTabChange={handleSelectTab}
-        activeIndex={activeTab}
-      />
+      <TabsPointing/>
     </Container>
   );
 }
