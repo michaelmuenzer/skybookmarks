@@ -10,10 +10,8 @@ import {
   Grid,
   Label,
 } from 'semantic-ui-react';
-import Links from './Links';
 
-// WorkshopForm is a simple form used for the Skynet Workshop
-const WorkshopForm = (props) => {
+const ContentForm = (props) => {
   return (
     <>
       <Segment>
@@ -21,44 +19,11 @@ const WorkshopForm = (props) => {
           <Loader active={props.loading} />
         </Dimmer>
 
-        {props.loggedIn === false && (
-          <Button color="green" onClick={props.handleMySkyLogin}>
-            Login with MySky
-          </Button>
-        )}
-        {props.loggedIn === null && <Button>Loading MySky...</Button>}
         {props.loggedIn === true && (
           <>
-            <Button onClick={props.handleMySkyLogout}>
-              Logout of MySky
-            </Button>
-            <Divider />
             {props.activeTab == 0 && (     
               <>
                 <Form onSubmit={props.handleNewBookmarkSubmit}>
-                  <Form.Field>
-                    <label>
-                      UserID <i>(Shared across MySky)</i>
-                    </label>
-                    <Input
-                      placeholder="You must Login with MySky..."
-                      value={props.userID}
-                      disabled
-                      icon="user circle"
-                      iconPosition="left"
-                    />  
-                  </Form.Field>
-                  <Form.Field>
-                    <label>Stored Bookmarks File Path</label>
-                    <Input
-                      placeholder="You must Login with MySky..."
-                      value={props.filePath}
-                      disabled
-                      icon="file"
-                      iconPosition="left"
-                    />
-                  </Form.Field>
-                  <Divider />
                   <Form.Field>
                     <label>Your Bookmarks</label>
                   </Form.Field>
@@ -183,11 +148,8 @@ const WorkshopForm = (props) => {
           </>                
         )}
       </Segment>
-      <Links
-        bookmarkSkylink={props.bookmarkSkylink}
-      />
     </>
   );
 };
 
-export default WorkshopForm;
+export default ContentForm;
