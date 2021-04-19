@@ -1,6 +1,12 @@
 import { Button, Input } from 'semantic-ui-react';
-  
+
 const Auth = (props) => {
+    const copyUserIDToClipboard = () => {
+        const el = document.getElementById("user-id");
+        el.select()
+        document.execCommand("copy")
+    };
+
     return (
         <>
         {props.loggedIn === false && (
@@ -16,10 +22,10 @@ const Auth = (props) => {
             <Input
                 placeholder="You must Login with MySky..."
                 value={props.userID}
-                disabled
-                icon="user circle"
-                iconPosition="left"
-            />  
+                id="user-id"
+                icon={{ name: 'copy', circular: false, link: true, onClick: ()=>{copyUserIDToClipboard()}}}
+                onClick={() => copyUserIDToClipboard()}
+            />
             <Button onClick={props.handleMySkyLogout}>
             Logout
             </Button>
