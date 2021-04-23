@@ -9,6 +9,8 @@ import {
   Grid,
 } from 'semantic-ui-react';
 
+import InputSearchButton from './InputSearchButton';
+
 const ContentForm = (props) => {
   return (
     <>
@@ -87,25 +89,9 @@ const ContentForm = (props) => {
               <>
               <Form onSubmit={props.handleFindUserSubmit}>
                   <Form.Field>
-                    <label>
-                      UserID
-                    </label>
-                    <Input
-                      placeholder="Enter UserID"
-                      icon="user circle"
-                      iconPosition="left"
-                      onChange={(e) => {
-                        props.setFindUserID(e.target.value)
-                      }}
-                    />  
+                    <InputSearchButton {...props} />
                   </Form.Field>
-                  <Button primary type="submit">
-                    Show bookmarks
-                  </Button>
-                  <Divider />
-                  <Form.Field>
-                    <label>Bookmarks</label>
-                  </Form.Field>
+
                   <Form.Field>
                     <div>
                       {props.findUserBookmarks.map((bookmark) => (
