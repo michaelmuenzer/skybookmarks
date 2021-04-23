@@ -2,7 +2,6 @@ import {
   Button,
   Icon,
   Form,
-  Input,
   Loader,
   Dimmer,
   Divider,
@@ -78,10 +77,11 @@ const ContentForm = (props) => {
                         props.setBookmarkUrl(e.target.value);
                       }}
                     />
-                    <Button primary type="submit">
-                    Add
-                    </Button>
                   </Form.Group>
+                  <Button primary type="submit">
+                  Add
+                  </Button>
+
                 </Form>
             </>
             )}

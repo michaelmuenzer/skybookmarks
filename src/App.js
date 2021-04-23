@@ -41,7 +41,7 @@ function App() {
   const dataKey = 'bookmarks';
 
   const filePath = dataDomain + '/' + dataKey;
-
+  
   const loadBookmarks = useCallback(async (props) => {
     if(mySky) {    
       setLoading(true);
@@ -216,12 +216,6 @@ function App() {
     }
   };
 
-  // loadData will load the users data from SkyDB
-  const loadData = async (event) => {
-    event.preventDefault();
-    await loadBookmarks()
-  };
-
   const handleSaveAndRecord = async (event, bookmark) => {
     event.preventDefault();
     setLoading(true);
@@ -260,7 +254,6 @@ function App() {
     handleMySkyLogout,
     handleSaveAndRecord,
     updateBookmark,
-    loadData,
     bookmarkName,
     bookmarkUrl,
     bookmarks,
@@ -276,7 +269,7 @@ function App() {
     setLoggedIn,
     setBookmarkName,
     setBookmarkUrl,
-    setFindUserID,
+    setFindUserID
   };
 
   // handleSelectTab handles selecting the part of the workshop
