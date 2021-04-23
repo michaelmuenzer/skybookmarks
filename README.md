@@ -1,13 +1,15 @@
-## TODO: What is it?
+# Skybookmarks
 
-Social bookmarking
-- Store copy of webpage on [Skynet](https://support.siasky.net/the-technology/developing-on-skynet). Booksmarks always representing what people saw.
+Skybookmarks is a decentralized social bookmarking website built on [Skynet](https://support.siasky.net/the-technology/developing-on-skynet). You can conveniently login with your SkyID and discover stored bookmarks of other users.
 
-Store web-pages persistent forever
-Store bookmarks at SkyID + changeable bookmarks
-Content record library:
-- Save bookmarks
-- Record changes of bookmarks
+The following user actions are stored in the [Content record library](https://github.com/SkynetLabs/content-record-library):
+- Save bookmark
+- Bookmark name update
+
+## Video Demo
+TODO
+
+## Live Demo
 
 You can access the latest deployed version on https://025hekt.hns.siasky.net/. It is set-up using [Github actions](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1) and [HNS](https://support.siasky.net/key-concepts/handshake-names).
 
@@ -74,6 +76,7 @@ Think of new features this product can offer and feel free to create PRs for the
 - Bookmark deletion
 - Browser extensions to set bookmarks more conveniently
 - Categorizing bookmarks and building a search engine and discovery features on top
+- Store a snapshot of the bookmark on Skynet (similar to [Waybackmachine](https://archive.org/web/))
 
 ## Available Scripts
 
