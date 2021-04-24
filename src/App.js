@@ -6,7 +6,7 @@ import Auth from './components/Auth';
 //import scrape from './website-scraper/index';
 //import sanitizeFilename from 'sanitize-filename';
 
-import { Tab, Container, Header, Menu } from 'semantic-ui-react';
+import { Tab, Container, Header, Menu, Image } from 'semantic-ui-react';
 import { ContentRecordDAC } from '@skynetlabs/content-record-library';
 import { SkynetClient } from 'skynet-js';
 
@@ -301,20 +301,24 @@ function App() {
     <Container>
       <Header
         as="h1"
-        content="Sky Bookmarks"
         textAlign="center"
-        style={{ marginTop: '1em', marginBottom: '1em' }}
+        style={{ marginTop: '1em', marginBottom: '1em' }} >
+          <Image
+            centered
+            size='large'
+            src={process.env.PUBLIC_URL + '/logo192.png'}
+          />
+          Sky Bookmarks
+      </Header>
+      <Tab 
+        menu={{ 
+          pointing: true,
+          horizontal: "true",
+        }}
+        panes={panes}
+        onTabChange={handleSelectTab}
+        activeIndex={activeTab}
       />
-    <Tab 
-      menu={{ 
-        pointing: true,
-        horizontal: "true",
-      }}
-      panes={panes}
-      onTabChange={handleSelectTab}
-      activeIndex={activeTab}
-    />
-
     </Container>
   );
 }
