@@ -21,7 +21,7 @@ const ContentForm = (props) => {
           <>
             {props.activeTab == 0 && (     
               <>
-                <Form onSubmit={props.handleNewBookmarkSubmit}>
+                <Form>
                   <Form.Field>
                     <label>Your Bookmarks</label>
                   </Form.Field>
@@ -58,7 +58,9 @@ const ContentForm = (props) => {
                       </Grid>
                     ))}
                   </Form.Field>
-                  <Divider />
+                </Form>
+                <Divider />
+                <Form onSubmit={props.handleNewBookmarkSubmit}>
                   <Form.Field>
                       <label>Add Bookmark</label>
                     </Form.Field>
@@ -81,7 +83,6 @@ const ContentForm = (props) => {
                   <Button primary type="submit">
                   Add
                   </Button>
-
                 </Form>
             </>
             )}

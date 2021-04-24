@@ -3,8 +3,8 @@ import { useState, useEffect, useCallback } from 'react';
 import ContentForm from './components/Form';
 import Auth from './components/Auth';
 
-import scrape from './website-scraper/index';
-import sanitizeFilename from 'sanitize-filename';
+//import scrape from './website-scraper/index';
+//import sanitizeFilename from 'sanitize-filename';
 
 import { Tab, Container, Header, Menu } from 'semantic-ui-react';
 import { ContentRecordDAC } from '@skynetlabs/content-record-library';
@@ -24,7 +24,6 @@ const dataDomain = '025hekt.hns';
 const contentRecord = new ContentRecordDAC();
 
 function App() {
-  // Define app state helpers
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const [bookmarkUrl, setBookmarkUrl] = useState('');
@@ -69,7 +68,6 @@ function App() {
         // needed for permissions write
         const mySky = await client.loadMySky(dataDomain);
 
-        // load necessary DACs and permissions
         await mySky.loadDacs(contentRecord);
 
         const loggedIn = await mySky.checkLogin();
@@ -87,7 +85,6 @@ function App() {
       }
     }
 
-    // call async setup function
     initMySky();
   }, [filePath, loadBookmarks]);
 
@@ -119,16 +116,19 @@ function App() {
 
     console.log('Store bookmark');
 
+    var creationTimestamp = Date.now();
+    var lastUpdatedTimestamp = creationTimestamp;
+    var dirSkylinkUrl = '';
+
+    //Disable storing bookmark for now due to missing Cors-Anywhere setup
+    /*
     const options = {
       urls: [bookmarkUrl],
       directory: './'
     };
-    
     const resources = await scrape(options);
     let webDirectory = {};
-    var creationTimestamp = Date.now();
-    var lastUpdatedTimestamp = creationTimestamp;
-    
+
     resources.forEach(function(resource) {
       const filename = resource.getFilename();
 
@@ -150,11 +150,12 @@ function App() {
     );
 
     // generate a URL for our current portal
-    const dirSkylinkUrl = await client.getSkylinkUrl(dirSkylink);
+    dirSkylinkUrl = await client.getSkylinkUrl(dirSkylink);
 
     console.log('Web Page Bookmark Uploaded:', dirSkylinkUrl);
 
     console.log('Saving user bookmark to MySky file...');
+    */
 
     const newBookmark = {
       bookmarkName,
@@ -178,10 +179,8 @@ function App() {
   };
 
   const handleMySkyLogin = async () => {
-    // Try login again, opening pop-up. Returns true if successful
     const status = await mySky.requestLoginAccess();
 
-    // set react state
     setLoggedIn(status);
 
     if (status) {
@@ -190,16 +189,13 @@ function App() {
   };
 
   const handleMySkyLogout = async () => {
-    // call logout to globally logout of mysky
     await mySky.logout();
 
-    //set react state
     setLoggedIn(false);
     setUserID('');
   };
 
   const handleMySkyWrite = async (jsonData) => {
-    // Use setJSON to save the user's information to MySky file
     try {
       await mySky.setJSON(filePath, jsonData);
     } catch (error) {
