@@ -297,7 +297,14 @@ function App() {
     },
   ];
 
-  const TabsPointing = () => 
+  return (
+    <Container>
+      <Header
+        as="h1"
+        content="Sky Bookmarks"
+        textAlign="center"
+        style={{ marginTop: '1em', marginBottom: '1em' }}
+      />
     <Tab 
       menu={{ 
         pointing: true,
@@ -308,15 +315,6 @@ function App() {
       activeIndex={activeTab}
     />
 
-  return (
-    <Container>
-      <Header
-        as="h1"
-        content="Sky Bookmarks"
-        textAlign="center"
-        style={{ marginTop: '1em', marginBottom: '1em' }}
-      />
-      <TabsPointing/>
     </Container>
   );
 }
