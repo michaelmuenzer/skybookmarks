@@ -307,6 +307,7 @@ function App() {
             centered
             size='large'
             src={process.env.PUBLIC_URL + '/logo192.png'}
+            style={{ marginBottom: '0.5em' }}
           />
           Sky Bookmarks
       </Header>
