@@ -75,7 +75,7 @@ Think of new features this product can offer and feel free to create PRs for the
 - Overview of the most bookmarked pages accross all users
 - Bookmark deletion
 - Browser extensions to set bookmarks more conveniently
-- Categorizing bookmarks and building a search engine and discovery features on top
+- Categorizing bookmarks and building a search engine and discovery features on top of that
 - Store a snapshot of the bookmark on Skynet (similar to [Waybackmachine](https://archive.org/web/))
 
 ## Available Scripts
