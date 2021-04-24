@@ -36,10 +36,10 @@ const ContentForm = (props) => {
                             }}
                           />
                         </Grid.Column>
-                        <Grid.Column width={9}>
+                        <Grid.Column width={10}>
                           <a href={bookmark.bookmarkUrl} target="_blank">{bookmark.bookmarkUrl}</a>
                         </Grid.Column>
-                        <Grid.Column width={1}>
+                        <Grid.Column width={2}>
                           <Button
                             icon
                             style={{ marginLeft: '20px' }}
