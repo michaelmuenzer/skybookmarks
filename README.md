@@ -3,7 +3,7 @@
 <p align="center">
   <img src="public/logo512.png" alt="skybookmarks-logo" width="120px" height="120px"/>
   <br>
-  Skybookmarks is a decentralized social bookmarking website built on [Skynet](https://support.siasky.net/the-technology/developing-on-skynet).
+  Skybookmarks is a decentralized social bookmarking website built on <a href="https://support.siasky.net/the-technology/developing-on-skynet">Skynet</a>.
 </p>
 
 ## Functionality
