@@ -10,7 +10,7 @@ const Auth = (props) => {
     return (
         <>
         {props.loggedIn === false && (
-            <Button color="green" onClick={props.handleMySkyLogin}>
+            <Button color="blue" onClick={props.handleMySkyLogin}>
             Login
             </Button>
         )}

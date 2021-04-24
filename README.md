@@ -1,6 +1,14 @@
-# Skybookmarks
+<h1 align="center">Skybookmarks</h1>
 
-Skybookmarks is a decentralized social bookmarking website built on [Skynet](https://support.siasky.net/the-technology/developing-on-skynet). You can conveniently login with your SkyID and discover stored bookmarks of other users.
+<p align="center">
+  <img src="public/logo512.png" alt="skybookmarks-logo" width="120px" height="120px"/>
+  <br>
+  Skybookmarks is a decentralized social bookmarking website built on [Skynet](https://support.siasky.net/the-technology/developing-on-skynet).
+</p>
+
+## Functionality
+
+You can conveniently login with your SkyID and discover stored bookmarks of other users.
 
 The following user actions are stored in the [Content record library](https://github.com/SkynetLabs/content-record-library):
 - Save bookmark
