@@ -15,11 +15,11 @@ The following user actions are stored in the [Content record library](https://gi
 - Bookmark name update
 
 ## Video Demo
-TODO
+[![Skybookmarks video](https://i.imgur.com/v0LHU3Z.png)](https://youtu.be/U8_rhghnR3c)
 
 ## Live Demo
 
-You can access the latest deployed version on https://025hekt.hns.siasky.net/. It is set-up using [Github actions](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1) and [HNS](https://support.siasky.net/key-concepts/handshake-names).
+You can access the latest deployed version on https://100bjqplidvqddq58su18sj8tjni56t98b1vjqr48k494s751rqmv5g.siasky.net/. It is set-up using [Github actions](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1) and [HNS](https://support.siasky.net/key-concepts/handshake-names).
 
 ## Prerequisites
 

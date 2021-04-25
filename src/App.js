@@ -94,7 +94,6 @@ function App() {
     setLoading(true);
 
     try {
-      console.log(findUserID);
       var findUserBookmarks = await client.file.getJSON(findUserID, filePath);
 
       if (findUserBookmarks && findUserBookmarks.data) {
