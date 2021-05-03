@@ -19,7 +19,7 @@ The following user actions are stored in the [Content record library](https://gi
 
 ## Live Demo
 
-You can access the latest deployed version on https://100bjqplidvqddq58su18sj8tjni56t98b1vjqr48k494s751rqmv5g.siasky.net/. It is set-up using [Github actions](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1) and [HNS](https://support.siasky.net/key-concepts/handshake-names).
+You can access the latest deployed version on https://skybookmarks.hns.siasky.net/. It is set-up using [Github actions](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1) and [HNS](https://support.siasky.net/key-concepts/handshake-names).
 
 ## Prerequisites
 
