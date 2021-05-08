@@ -19,7 +19,7 @@ const client = new SkynetClient();
 
 // Choose a data domain for saving files in MySky, you can use localhost during development
 //const dataDomain = 'localhost';
-const dataDomain = '025hekt.hns';
+const dataDomain = 'skybookmarks.hns';
 
 const contentRecord = new ContentRecordDAC();
 
